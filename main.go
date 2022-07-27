@@ -12,19 +12,18 @@ import (
 )
 
 func recordMetrics() {
-  go func() {
-    for {
+	go func() {
+		for {
 			routeViewsRoot.Inc()
-    }
-  }()
+		}
+	}()
 }
 
 var (
-
-        routeViewsRoot = promauto.NewCounter(prometheus.CounterOpts{
-                Name: "whoami_route_root_total",
-                Help: "The total number of views on /",
-        })
+	routeViewsRoot = promauto.NewCounter(prometheus.CounterOpts{
+		Name: "whoami_route_root_total",
+		Help: "The total number of views on /",
+	})
 )
 
 func main() {
